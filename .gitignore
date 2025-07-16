@@ -1,0 +1,10 @@
+# Docker
+pgdata/
+
+# PHP / Composer
+/vendor/
+composer.lock
+
+# IDE
+.idea/
+.vscode/
