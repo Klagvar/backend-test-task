@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+  php:
+    build: ./php
+    volumes:
+      - ./php:/var/www/html
+    depends_on:
+      - redis
