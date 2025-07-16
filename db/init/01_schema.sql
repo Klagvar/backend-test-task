@@ -1,10 +1,10 @@
--- Table: categories
+-- Таблица категорий
 CREATE TABLE IF NOT EXISTS categories (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL
 );
 
--- Table: products
+-- Таблица продуктов
 CREATE TABLE IF NOT EXISTS products (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -12,13 +12,13 @@ CREATE TABLE IF NOT EXISTS products (
     category_id INT NOT NULL REFERENCES categories(id)
 );
 
--- Table: orders
+-- Таблица заказов
 CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
     created_at TIMESTAMP DEFAULT now()
 );
 
--- Table: order_items
+-- Таблица позиций заказа
 CREATE TABLE IF NOT EXISTS order_items (
     id SERIAL PRIMARY KEY,
     order_id INT NOT NULL REFERENCES orders(id),
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS order_items (
     price_snapshot DECIMAL(12,2) NOT NULL
 );
 
--- Table: stats
+-- Таблица статистики
 CREATE TABLE IF NOT EXISTS stats (
   stat_date   DATE NOT NULL,
   category_id INT  NOT NULL REFERENCES categories(id),
